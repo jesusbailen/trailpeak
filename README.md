@@ -107,10 +107,7 @@ El script incluido es `sql/trailpeak.sql`.
 ## 🖼️ Capturas de pantalla
 Agrega tus capturas en `docs/screenshots/` y actualiza rutas si lo necesitas.
 
-## 👤 Autor
-- Jesús Bailén
-- GitHub: https://github.com/jesusbailen
-- LinkedIn: https://linkedin.com/n/jesusbailen
+
 
 ## 🎓 Contexto educativo
 Proyecto final del módulo Desarrollo Web en Entorno Servidor (DAW 2).
@@ -146,6 +143,9 @@ Completado y estable para entrega académica.
 
 ## 📄 Licencia
 MIT
+
+## 👤 Autor
+- Jesús Bailén
 
 ## 📬 Contacto
 - GitHub: https://github.com/jesusbailen
