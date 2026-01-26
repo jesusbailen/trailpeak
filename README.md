@@ -1,5 +1,7 @@
 # 🏔️ Trailpeak - Tienda Online
 
+![Trailpeak logo](img/ui/logo_trailpeak.png)
+
 ## 📝 Descripcion de la tienda
 Trailpeak es una tienda online de equipamiento de trail running. Permite navegar por un catalogo de productos, realizar compras como cliente registrado o invitado y gestionar pedidos mediante un panel de administracion.
 
