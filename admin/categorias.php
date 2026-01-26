@@ -10,7 +10,7 @@ $errores = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $accion = $_POST['accion'] ?? '';
-  $idCategoriaPost = (int)($_POST['id_categoria'] ?? 0);
+  $idCategoriaPost = (int)($_POST['id_categoria'] ?? $idCategoria ?? 0);
 
   if ($accion === 'toggle' && $idCategoriaPost > 0) {
     $activar = isset($_POST['activar']) ? (int)$_POST['activar'] : 0;
@@ -102,7 +102,7 @@ $categoriasPadre = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
       <?php endif; ?>
 
-      <form method="post">
+      <form method="post" action="<?= BASE_URL ?>admin/categorias.php">
         <input type="hidden" name="accion" value="save">
         <input type="hidden" name="id_categoria" value="<?= (int)$categoriaEditar['id_categoria'] ?>">
         <div class="row g-3 align-items-end">
