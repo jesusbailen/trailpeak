@@ -12,7 +12,7 @@ Trailpeak es una tienda online de equipamiento de trail running. Permite navegar
 - Integracion con Stripe en modo test.
 
 ## 🛠️ Tecnologias utilizadas
-- PHP 8.x
+- PHP 8.4.13
 - MySQL / MariaDB
 - Bootstrap 5
 - Chart.js
