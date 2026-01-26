@@ -49,7 +49,7 @@ if (!$pedido) {
   exit;
 }
 
-// 2) Traer líneas del pedido
+// 2) Traer lineas del pedido
 $stmt = $pdo->prepare("
   SELECT dp.id_producto, dp.cantidad, dp.precio_unitario, p.nombre
   FROM detalle_pedido dp
@@ -60,23 +60,9 @@ $stmt = $pdo->prepare("
 $stmt->execute([$idPedido]);
 $lineas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <title>Pedido #<?= (int)$pedido['id_pedido'] ?></title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-<nav class="navbar navbar-dark bg-dark py-2">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center gap-2" href="<?= BASE_URL ?>index.php">
-      <img src="<?= BASE_URL ?>img/ui/logo_trailpeak.png" alt="TrailPeak logo" height="32" />
-      <span class="fw-bold">TRAILPEAK</span>
-    </a>
-  </div>
-</nav>
-<div class="container py-5">
+<?php require_once __DIR__ . '/includes/header.php'; ?>
+
+<main class="container py-5">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h1 class="mb-0">Pedido <?= (int)$pedido['id_pedido'] ?></h1>
     <?php if ($esStaff): ?>
@@ -86,43 +72,44 @@ $lineas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endif; ?>
   </div>
 
-  <div class="card card-body mb-4">
+  <div class="card card-body shadow-sm mb-4">
     <div><strong>Fecha:</strong> <?= htmlspecialchars($pedido['fecha']) ?></div>
-    <div><strong>Total:</strong> <?= number_format((float)$pedido['total'], 2) ?> €</div>
+    <div><strong>Total:</strong> <?= number_format((float)$pedido['total'], 2) ?> &euro;</div>
     <?php if ($tieneEstado): ?>
       <div><strong>Estado:</strong> <?= htmlspecialchars($pedido['estado'] ?? 'pendiente') ?></div>
     <?php endif; ?>
   </div>
 
   <?php if (!$lineas): ?>
-    <div class="alert alert-warning">Este pedido no tiene líneas asociadas.</div>
+    <div class="alert alert-warning">Este pedido no tiene lineas asociadas.</div>
   <?php else: ?>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Producto</th>
-          <th class="text-end">Precio</th>
-          <th class="text-end">Cantidad</th>
-          <th class="text-end">Subtotal</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($lineas as $l): 
-          $precio = (float)$l['precio_unitario'];
-          $cant   = (int)$l['cantidad'];
-          $sub    = $precio * $cant;
-        ?>
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead>
           <tr>
-            <td><?= htmlspecialchars($l['nombre']) ?></td>
-            <td class="text-end"><?= number_format($precio, 2) ?> €</td>
-            <td class="text-end"><?= $cant ?></td>
-            <td class="text-end"><?= number_format($sub, 2) ?> €</td>
+            <th>Producto</th>
+            <th class="text-end">Precio</th>
+            <th class="text-end">Cantidad</th>
+            <th class="text-end">Subtotal</th>
           </tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <?php foreach ($lineas as $l):
+            $precio = (float)$l['precio_unitario'];
+            $cant   = (int)$l['cantidad'];
+            $sub    = $precio * $cant;
+          ?>
+            <tr>
+              <td><?= htmlspecialchars($l['nombre']) ?></td>
+              <td class="text-end"><?= number_format($precio, 2) ?> &euro;</td>
+              <td class="text-end"><?= $cant ?></td>
+              <td class="text-end"><?= number_format($sub, 2) ?> &euro;</td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
   <?php endif; ?>
-</div>
-</body>
-</html>
+</main>
 
+<?php require_once __DIR__ . '/includes/footer.php'; ?>
