@@ -6,8 +6,10 @@ La aplicación permite a los usuarios navegar por un catálogo de productos de t
 
 El proyecto incluye un sistema completo de roles, carrito, checkout, panel de administración e informes, aplicando buenas prácticas de desarrollo backend con PHP y MySQL.
 
+
 ✨ Características principales
 🏠 Tienda
+
 
 · Catálogo de productos por categorías
 
@@ -16,6 +18,7 @@ El proyecto incluye un sistema completo de roles, carrito, checkout, panel de ad
 · Visualización de productos activos
 
 · Diseño responsive con Bootstrap
+
 
 🛒 Carrito y compra
 
@@ -33,6 +36,7 @@ El proyecto incluye un sistema completo de roles, carrito, checkout, panel de ad
 
 · Estados de pedido: pendiente, enviado, entregado
 
+
 👤 Usuarios y autenticación
 
 · Registro, login y logout seguros
@@ -46,6 +50,7 @@ El proyecto incluye un sistema completo de roles, carrito, checkout, panel de ad
   · Editar datos personales
 
   · Cambiar contraseña
+  
 
 👨‍💼 Panel de administración
 
@@ -68,6 +73,7 @@ El proyecto incluye un sistema completo de roles, carrito, checkout, panel de ad
   · Productos más vendidos
 
   · Ingresos por mes
+  
 
 👥 Sistema de roles
 
@@ -78,6 +84,7 @@ El proyecto incluye un sistema completo de roles, carrito, checkout, panel de ad
 · Empleado: gestión de productos, categorías y pedidos
 
 · Admin: gestión completa + informes + usuarios
+
 
 🛠️ Tecnologías utilizadas
 
@@ -101,7 +108,8 @@ Servicios externos
 
 Stripe Checkout (modo test)
 
-📁 Estructura del proyecto (simplificada)
+
+📁 Estructura del proyecto
 TrailPeak/
 │
 ├── admin/                # Panel de administración
@@ -134,6 +142,7 @@ TrailPeak/
 └── sql/
     └── trailpeak.sql     # Script de base de datos
 
+
 🚀 Instalación en local
 Requisitos
 
@@ -145,6 +154,7 @@ Requisitos
 
 · Navegador web moderno
 
+
 Pasos
 
 1. Copiar el proyecto en htdocs
@@ -154,7 +164,6 @@ Pasos
 3. Importar el archivo:
 
 sql/trailpeak.sql
-
 
 4. Copiar:
 
@@ -166,6 +175,7 @@ config/env.example.php → config/env.php
 
 http://localhost/TrailPeak/
 
+
 💳 Stripe (modo test)
 
 Tarjeta de prueba:
@@ -173,6 +183,7 @@ Tarjeta de prueba:
 4242 4242 4242 4242
 Fecha: cualquiera futura
 CVC: cualquiera
+
 
 🔐 Usuarios de prueba (ejemplo)
 Admin:
@@ -186,6 +197,7 @@ Empleado:
 Cliente:
   email: cliente@trailpeak.test
   password: Cliente123
+  
 
   🔒 Seguridad
 
@@ -201,14 +213,17 @@ Cliente:
 
 · Separación de configuración por entorno
 
+
 ⚠️ Proyecto educativo. Para producción real se recomienda añadir CSRF tokens, HTTPS, rate limiting, etc.
 
+
 🚧 Estado del proyecto
+
 
 ✅ Proyecto completado y funcional
 Cumple los requisitos funcionales de la práctica final de DWES (DAW).
 
+
 👨‍💻 Autor
 
-Jesús Bailén Sánchez
-Estudiante de 2º DAW
+Jesús Bailén Sánchez - Web Developer & Publicist
