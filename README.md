@@ -103,12 +103,6 @@ El script incluido es `sql/trailpeak.sql`.
 - Panel de administracion con CRUD e informes.
 
 ## 🖼️ Capturas de pantalla
-Guarda las capturas en `docs/screenshots/` y actualiza las rutas si lo necesitas.
-
-- ![Home](docs/screenshots/home.png)
-- ![Producto](docs/screenshots/producto.png)
-- ![Carrito](docs/screenshots/carrito.png)
-- ![Admin](docs/screenshots/admin.png)
 
 ## 👤 Autor
 - Jesus Bailen
@@ -136,15 +130,15 @@ Recomendaciones si fuese un caso real:
 - Backups automaticos de BD.
 
 ## 📌 Estado del proyecto
-Completado y estable para entrega academica.
+Completado y estable para entrega académica.
 
 ## ✅ Funcionalidades completadas
-- Catalogo, carrito, usuarios, pedidos, administracion, informes, integracion basica de pago.
+- Catálogo, carrito, usuarios, pedidos, administracion, informes, integración básica de pago.
 
 ## 🔮 Mejoras futuras posibles
-- Emails automaticos de confirmacion.
+- Emails automáticos de confirmación.
 - Facturas PDF.
-- Paginacion avanzada.
+- Paginación avanzada.
 - Mejoras de accesibilidad y SEO.
 
 ## 📄 Licencia
@@ -152,7 +146,7 @@ MIT
 
 ## 📬 Contacto
 - GitHub: https://github.com/jesusbailen
-- LinkedIn: https://linkedin.com/n/jesusbailen
+- LinkedIn: https://linkedin.com/in/jesusbailen
 
 ---
 Gracias por revisar el proyecto.
