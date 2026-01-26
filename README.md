@@ -3,17 +3,17 @@
 ![Trailpeak logo](img/ui/logo_trailpeak.png)
 
 ## 📝 Descripción de la tienda
-Trailpeak es una tienda online de equipamiento de trail running. Permite navegar por un catalogo de productos, realizar compras como cliente registrado o invitado y gestionar pedidos mediante un panel de administracion.
+Trailpeak es una tienda online de equipamiento de trail running. Permite navegar por un catálogo de productos, realizar compras como cliente registrado o invitado y gestionar pedidos mediante un panel de administración.
 
 ## ✨ Características
-- Catalogo con categorias dinámicas y filtros por nombre, precio y SKU.
+- Catálogo con categorías dinámicas y filtros por nombre, precio y SKU.
 - Carrito con ajuste de cantidades.
 - Registro, login y perfil de usuario.
-- Panel de administracion con CRUD y gestion de pedidos.
-- Informes con graficas.
-- Integracion con Stripe en modo test.
+- Panel de administración con CRUD y gestión de pedidos.
+- Informes con gráficas.
+- Integración con Stripe en modo test.
 
-## 🛠️ Tecnologias utilizadas
+## 🛠️ Tecnologías utilizadas
 - PHP 8.4.13
 - MySQL / MariaDB
 - Bootstrap 5
@@ -23,12 +23,12 @@ Trailpeak es una tienda online de equipamiento de trail running. Permite navegar
 ## 🧩 Estructura del proyecto
 ```text
 Tienda_Trailpeak_FINAL/
-├─ index.php                     (catalogo y filtros)
+├─ index.php                     (catálogo y filtros)
 ├─ producto.php                  (detalle de producto)
 ├─ cart.php                      (carrito)
 ├─ checkout.php                  (pago)
-├─ success.php                   (confirmacion pedido)
-├─ cancel.php                    (cancelacion)
+├─ success.php                   (confirmación pedido)
+├─ cancel.php                    (cancelación)
 ├─ login.php                     (acceso)
 ├─ register.php                  (registro)
 ├─ mis_datos.php                 (perfil)
@@ -59,7 +59,7 @@ Tienda_Trailpeak_FINAL/
 └─ vendor/
 ```
 
-## 🚀 Instalacion
+## 🚀 Instalación
 1) Clona el repositorio.
 2) Copia `config/env.example.php` como `config/env.php`.
 3) Configura BD, `BASE_URL` y `STRIPE_SECRET` en `config/env.php`.
@@ -76,43 +76,44 @@ Tablas principales:
 - `detalle_pedido`
 
 Campos clave:
-- Bajas logicas con `activo` en `usuario`, `categoria`, `producto`.
+- Bajas lógicas con `activo` en `usuario`, `categoria`, `producto`.
 - Pedidos con estado `pendiente`, `enviado`, `entregado`.
 
 ### 📄 Script SQL de ejemplo
 El script incluido es `sql/trailpeak.sql`.
 
-### 📥 Importacion del SQL
+### 📥 Importación del SQL
 1) Abre phpMyAdmin.
 2) Selecciona tu base de datos.
-3) Pestana Importar.
+3) Pestaña Importar.
 4) Sube `sql/trailpeak.sql`.
-5) Confirma la importacion.
+5) Confirma la importación.
 
 ## ▶️ Uso
-- Acceso publico al catalogo y carrito.
+- Acceso público al catálogo y carrito.
 - Registro y login para clientes.
 - Panel admin para administradores:
-  - Gestion de productos, categorias y pedidos.
-  - Gestion de usuarios.
+  - Gestión de productos, categorías y pedidos.
+  - Gestión de usuarios.
   - Informes.
 
 ## ✅ Funcionalidades disponibles
-- Catalogo con busqueda, filtrado y ordenacion.
-- Detalle de producto con opcion "Ver mas".
+- Catálogo con búsqueda, filtrado y ordenación.
+- Detalle de producto con opción "Ver más".
 - Carrito con ajustes de cantidad.
 - Pedidos y estado de pedidos.
-- Panel de administracion con CRUD e informes.
+- Panel de administración con CRUD e informes.
 
 ## 🖼️ Capturas de pantalla
+Agrega tus capturas en `docs/screenshots/` y actualiza rutas si lo necesitas.
 
 ## 👤 Autor
-- Jesus Bailen
+- Jesús Bailén
 - GitHub: https://github.com/jesusbailen
 - LinkedIn: https://linkedin.com/n/jesusbailen
 
 ## 🎓 Contexto educativo
-Proyecto final del modulo Desarrollo Web en Entorno Servidor (DAW 2).
+Proyecto final del módulo Desarrollo Web en Entorno Servidor (DAW 2).
 
 ## 🔒 Seguridad
 Medidas implementadas:
@@ -120,22 +121,22 @@ Medidas implementadas:
 - Saneamiento con `filter_input` y `htmlspecialchars`.
 - Passwords con `password_hash` y `password_verify`.
 - Control de acceso por roles.
-- Bajas logicas en lugar de eliminaciones permanentes.
-- Validacion basica de uploads.
+- Bajas lógicas en lugar de eliminaciones permanentes.
+- Validación básica de uploads.
 
 Recomendaciones si fuese un caso real:
 - Variables de entorno para credenciales.
 - HTTPS y HSTS.
 - CSRF tokens en formularios sensibles.
-- Rate limiting y proteccion anti fuerza bruta.
-- Logs y auditoria de acciones admin.
-- Backups automaticos de BD.
+- Rate limiting y protección anti fuerza bruta.
+- Logs y auditoría de acciones admin.
+- Backups automáticos de BD.
 
 ## 📌 Estado del proyecto
 Completado y estable para entrega académica.
 
 ## ✅ Funcionalidades completadas
-- Catálogo, carrito, usuarios, pedidos, administracion, informes, integración básica de pago.
+- Catálogo, carrito, usuarios, pedidos, administración, informes, integración básica de pago.
 
 ## 🔮 Mejoras futuras posibles
 - Emails automáticos de confirmación.
@@ -148,7 +149,7 @@ MIT
 
 ## 📬 Contacto
 - GitHub: https://github.com/jesusbailen
-- LinkedIn: https://linkedin.com/in/jesusbailen
+- LinkedIn: https://linkedin.com/n/jesusbailen
 
 ---
 Gracias por revisar el proyecto.
