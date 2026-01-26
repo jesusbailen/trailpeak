@@ -1,4 +1,8 @@
 /config/env.php
-/.env
+/uploads/
+.env
+.env.*
+*.bak
+*.zip
 .DS_Store
 Thumbs.db
