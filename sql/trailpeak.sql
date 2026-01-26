@@ -42,7 +42,7 @@ INSERT INTO `categoria` (`id_categoria`, `nombre`, `activo`) VALUES
 (1, 'Ropa técnica', 1),
 (2, 'Zapatillas', 1),
 (3, 'Accesorios', 1),
-(4, 'Ofertas', 0);
+(4, 'Ofertas', 1);
 
 -- --------------------------------------------------------
 
@@ -125,8 +125,9 @@ INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `stock
 (5, 'Chaleco', '', 49.90, 5, 3, 1),
 (6, 'Zapatiillas Speed Trail Pro', '', 90.90, 12, 2, 1),
 (7, 'Bolsa de hidratación', '', 14.90, 25, 3, 1),
-(8, 'Guantes', '', 19.90, 12, 4, 0),
-(9, 'Cortavientos', '', 39.90, 12, 4, 0);
+(8, 'Guantes', '', 19.90, 12, 4, 1),
+(9, 'Cortavientos', '', 39.90, 12, 4, 1),
+(10, 'Gorra', '', 24.90, 15, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -252,3 +253,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
