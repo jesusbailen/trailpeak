@@ -1,126 +1,214 @@
-# Trailpeak - Tienda Online
+🏔️ TrailPeak — Tienda Online de Trail Running
+📋 Descripción
 
-Tienda online completa para equipamiento de trail running. El proyecto incluye catalogo con filtros, carrito, gestion de usuarios, panel de administracion, pedidos e informes, siguiendo una arquitectura modular en PHP y MySQL.
+TrailPeak es una tienda online desarrollada como proyecto educativo del segundo curso del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Web (DAW).
+La aplicación permite a los usuarios navegar por un catálogo de productos de trail running, realizar compras como cliente registrado o invitado, y gestionar pedidos mediante una pasarela de pago integrada con Stripe.
 
-## Caracteristicas
-- Catalogo con categorias dinamicas, filtros por nombre, precio y codigo (SKU).
-- Carrito de compra con ajuste de cantidades.
-- Registro, login y perfil de usuario.
-- Panel de administracion con CRUD y gestion de pedidos.
-- Informes con graficas (ventas e ingresos mensuales).
-- Integracion con Stripe en modo test.
+El proyecto incluye un sistema completo de roles, carrito, checkout, panel de administración e informes, aplicando buenas prácticas de desarrollo backend con PHP y MySQL.
 
-## Tecnologias utilizadas
-- PHP 8.x
-- MySQL / MariaDB
-- Bootstrap 5
-- Chart.js
-- Stripe PHP SDK
+✨ Características principales
+🏠 Tienda
 
-## Estructura del proyecto
-- `index.php`: catalogo principal
-- `producto.php`: detalle de producto
-- `cart.php`, `checkout.php`, `success.php`: carrito y compra
-- `admin/`: panel de administracion
-- `config/`: configuracion y conexion
-- `includes/`: header y footer comunes
-- `css/`, `img/`, `vendor/`, `uploads/`
+· Catálogo de productos por categorías
 
-## Instalacion
-1) Clona el repositorio.
-2) Crea el archivo de configuracion:
-   - Copia `config/env.php.example` como `config/env.php`.
-   - Ajusta credenciales de BD, `BASE_URL` y `STRIPE_SECRET`.
-3) Importa la base de datos (ver apartado siguiente).
-4) Abre en el navegador:
-   - `http://localhost/ud6/ud6/Tienda_Trailpeak_FINAL/index.php`
+· Búsqueda, filtrado y ordenación de productos
 
-## Base de datos
-Tablas principales:
-- `usuario`
-- `categoria`
-- `producto`
-- `pedido`
-- `detalle_pedido`
+· Visualización de productos activos
 
-Campos clave:
-- Bajas logicas con `activo` en `usuario`, `categoria`, `producto`.
-- Pedidos con estado `pendiente`, `enviado`, `entregado`.
+· Diseño responsive con Bootstrap
 
-### Script SQL de ejemplo
-El script incluido es `trailpeak_local.sql`.
+🛒 Carrito y compra
 
-### Importacion del SQL
-1) Abre phpMyAdmin.
-2) Selecciona tu base de datos.
-3) Pestaña **Importar**.
-4) Sube `trailpeak_local.sql`.
-5) Confirma la importacion.
+· Carrito de compra con gestión de cantidades
 
-## Uso
-- Acceso publico al catalogo y carrito.
-- Registro y login para clientes.
-- Panel admin para empleados y administradores:
-  - Gestion de productos, categorias y pedidos.
-  - Gestion de usuarios (solo admin).
-  - Informes (solo admin).
+· Compra como:
 
-## Funcionalidades disponibles
-- Catalogo con busqueda, filtrado y ordenacion.
-- Detalle de producto con opcion "Ver mas".
-- Carrito con ajustes de cantidad.
-- Pedidos y estado de pedidos.
-- Panel de administracion con CRUD e informes.
+  ·Usuario registrado
 
-## Capturas de pantalla
-Agrega tus capturas en `docs/screenshots/` y actualiza rutas si lo necesitas.
+  ·Invitado (sin registro previo)
 
-- ![Home](docs/screenshots/home.png)
-- ![Producto](docs/screenshots/producto.png)
-- ![Carrito](docs/screenshots/carrito.png)
-- ![Admin](docs/screenshots/admin.png)
+· Integración de pago con Stripe (modo test)
 
-## Autor
-- Jesus Bailen
-- GitHub: `https://github.com/jesusbailen`
+· Generación automática de pedidos
 
-## Contexto educativo
-Proyecto final del modulo Desarrollo Web en Entorno Servidor (DAW 2º).
+· Estados de pedido: pendiente, enviado, entregado
 
-## Seguridad
-Medidas implementadas:
-- Consultas preparadas (PDO).
-- Saneamiento con `filter_input` y `htmlspecialchars`.
-- Passwords con `password_hash` y `password_verify`.
-- Control de acceso por roles.
-- Bajas logicas en lugar de eliminaciones permanentes.
-- Validacion basica de uploads.
+👤 Usuarios y autenticación
 
-Recomendaciones si fuese un caso real:
-- Mover credenciales a variables de entorno.
-- Forzar HTTPS y HSTS.
-- CSRF tokens en formularios sensibles.
-- Rate limiting y proteccion anti-fuerza bruta.
-- Logs y auditoria de acciones admin.
-- Backups automaticos de BD.
+· Registro, login y logout seguros
 
-## Estado del proyecto
-Completado y estable para entrega academica.
+· Contraseñas hasheadas (password_hash)
 
-## Funcionalidades completadas
-- Catalogo, carrito, usuarios, pedidos, administracion, informes, integracion basica de pago.
+· Panel de usuario:
 
-## Mejoras futuras
-- Emails automaticos de confirmacion.
-- Facturas PDF.
-- Paginacion avanzada.
-- Mejoras de accesibilidad y SEO.
+  · Ver pedidos
 
-## Licencia
-MIT
+  · Editar datos personales
 
-## Contacto
-- GitHub: `https://github.com/jesusbailen`
+  · Cambiar contraseña
 
----
-Gracias por revisar el proyecto.
+👨‍💼 Panel de administración
+
+· Acceso protegido por rol
+
+· Gestión de:
+
+  · Productos (CRUD + baja lógica)
+
+  · Categorías
+
+  · Pedidos y estados
+
+  · Usuarios (solo admin)
+
+· Panel de informes:
+
+  · Ventas totales
+
+  · Productos más vendidos
+
+  · Ingresos por mes
+
+👥 Sistema de roles
+
+· Visitante: navegar, carrito, compra como invitado
+
+· Cliente: compras, pedidos, perfil
+
+· Empleado: gestión de productos, categorías y pedidos
+
+· Admin: gestión completa + informes + usuarios
+
+🛠️ Tecnologías utilizadas
+
+Backend
+
+· PHP 7.4+
+
+· MySQL / MariaDB
+
+· PDO (consultas preparadas)
+
+Frontend
+
+· Bootstrap 5
+
+· HTML5 / CSS3
+
+· JavaScript (vanilla)
+
+Servicios externos
+
+Stripe Checkout (modo test)
+
+📁 Estructura del proyecto (simplificada)
+TrailPeak/
+│
+├── admin/                # Panel de administración
+│   ├── pedidos.php
+│   ├── productos.php
+│   ├── categorias.php
+│   ├── usuarios.php
+│   └── informes.php
+│
+├── config/
+│   ├── env.php           # Configuración real (NO se sube)
+│   └── env.example.php   # Configuración de ejemplo
+│
+├── partials/             # Header, footer, mensajes flash
+│
+├── assets/
+│   ├── css/
+│   └── img/
+│
+├── index.php             # Catálogo principal
+├── carrito.php
+├── checkout.php
+├── success.php
+├── cancel.php
+├── login.php
+├── register.php
+├── mis_pedidos.php
+├── mis_datos.php
+│
+└── sql/
+    └── trailpeak.sql     # Script de base de datos
+
+🚀 Instalación en local
+Requisitos
+
+· XAMPP / WAMP / MAMP
+
+· PHP 7.4 o superior
+
+· MySQL / MariaDB
+
+· Navegador web moderno
+
+Pasos
+
+1. Copiar el proyecto en htdocs
+
+2. Crear una base de datos (ej. trailpeak_local)
+
+3. Importar el archivo:
+
+sql/trailpeak.sql
+
+
+4. Copiar:
+
+config/env.example.php → config/env.php
+
+5. Configurar credenciales de BD y Stripe en env.php
+
+6. Acceder desde el navegador:
+
+http://localhost/TrailPeak/
+
+💳 Stripe (modo test)
+
+Tarjeta de prueba:
+
+4242 4242 4242 4242
+Fecha: cualquiera futura
+CVC: cualquiera
+
+🔐 Usuarios de prueba (ejemplo)
+Admin:
+  email: admin@trailpeak.com
+  password: Admin123
+
+Empleado:
+  email: empleado@trailpeak.test
+  password: Empleado123
+
+Cliente:
+  email: cliente@trailpeak.test
+  password: Cliente123
+
+  🔒 Seguridad
+
+· Contraseñas cifradas
+
+· PDO + consultas preparadas
+
+· Control de acceso por rol
+
+· Baja lógica (activo)
+
+· Sanitización de salida (htmlspecialchars)
+
+· Separación de configuración por entorno
+
+⚠️ Proyecto educativo. Para producción real se recomienda añadir CSRF tokens, HTTPS, rate limiting, etc.
+
+🚧 Estado del proyecto
+
+✅ Proyecto completado y funcional
+Cumple los requisitos funcionales de la práctica final de DWES (DAW).
+
+👨‍💻 Autor
+
+Jesús Bailén Sánchez
+Estudiante de 2º DAW
