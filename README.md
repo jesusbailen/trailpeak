@@ -1,9 +1,9 @@
-# Trailpeak - Tienda Online
+# 🏔️ Trailpeak - Tienda Online
 
-## Descripcion de la tienda
+## 📝 Descripcion de la tienda
 Trailpeak es una tienda online de equipamiento de trail running. Permite navegar por un catalogo de productos, realizar compras como cliente registrado o invitado y gestionar pedidos mediante un panel de administracion.
 
-## Caracteristicas
+## ✨ Caracteristicas
 - Catalogo con categorias dinamicas y filtros por nombre, precio y SKU.
 - Carrito con ajuste de cantidades.
 - Registro, login y perfil de usuario.
@@ -11,14 +11,14 @@ Trailpeak es una tienda online de equipamiento de trail running. Permite navegar
 - Informes con graficas.
 - Integracion con Stripe en modo test.
 
-## Tecnologias utilizadas
+## 🛠️ Tecnologias utilizadas
 - PHP 8.x
 - MySQL / MariaDB
 - Bootstrap 5
 - Chart.js
 - Stripe PHP SDK
 
-## Estructura del proyecto
+## 🧩 Estructura del proyecto
 ```text
 Tienda_Trailpeak_FINAL/
 ├─ index.php                     (catalogo y filtros)
@@ -57,7 +57,7 @@ Tienda_Trailpeak_FINAL/
 └─ vendor/
 ```
 
-## Instalacion
+## 🚀 Instalacion
 1) Clona el repositorio.
 2) Copia `config/env.example.php` como `config/env.php`.
 3) Configura BD, `BASE_URL` y `STRIPE_SECRET` en `config/env.php`.
@@ -65,7 +65,7 @@ Tienda_Trailpeak_FINAL/
 5) Abre en el navegador:
    - `http://localhost/ud6/ud6/Tienda_Trailpeak_FINAL/index.php`
 
-## Base de datos
+## 🗄️ Base de datos
 Tablas principales:
 - `usuario`
 - `categoria`
@@ -77,47 +77,48 @@ Campos clave:
 - Bajas logicas con `activo` en `usuario`, `categoria`, `producto`.
 - Pedidos con estado `pendiente`, `enviado`, `entregado`.
 
-### Script SQL de ejemplo
+### 📄 Script SQL de ejemplo
 El script incluido es `sql/trailpeak.sql`.
 
-### Importacion del SQL
+### 📥 Importacion del SQL
 1) Abre phpMyAdmin.
 2) Selecciona tu base de datos.
 3) Pestana Importar.
 4) Sube `sql/trailpeak.sql`.
 5) Confirma la importacion.
 
-## Uso
+## ▶️ Uso
 - Acceso publico al catalogo y carrito.
 - Registro y login para clientes.
-- Panel admin para empleados y administradores:
+- Panel admin para administradores:
   - Gestion de productos, categorias y pedidos.
-  - Gestion de usuarios (solo admin).
-  - Informes (solo admin).
+  - Gestion de usuarios.
+  - Informes.
 
-## Funcionalidades disponibles
+## ✅ Funcionalidades disponibles
 - Catalogo con busqueda, filtrado y ordenacion.
 - Detalle de producto con opcion "Ver mas".
 - Carrito con ajustes de cantidad.
 - Pedidos y estado de pedidos.
 - Panel de administracion con CRUD e informes.
 
-## Capturas de pantalla
-Agrega tus capturas en `docs/screenshots/` y actualiza rutas si lo necesitas.
+## 🖼️ Capturas de pantalla
+Guarda las capturas en `docs/screenshots/` y actualiza las rutas si lo necesitas.
 
 - ![Home](docs/screenshots/home.png)
 - ![Producto](docs/screenshots/producto.png)
 - ![Carrito](docs/screenshots/carrito.png)
 - ![Admin](docs/screenshots/admin.png)
 
-## Autor
+## 👤 Autor
 - Jesus Bailen
 - GitHub: https://github.com/jesusbailen
+- LinkedIn: https://linkedin.com/n/jesusbailen
 
-## Contexto educativo
+## 🎓 Contexto educativo
 Proyecto final del modulo Desarrollo Web en Entorno Servidor (DAW 2).
 
-## Seguridad
+## 🔒 Seguridad
 Medidas implementadas:
 - Consultas preparadas (PDO).
 - Saneamiento con `filter_input` y `htmlspecialchars`.
@@ -134,23 +135,24 @@ Recomendaciones si fuese un caso real:
 - Logs y auditoria de acciones admin.
 - Backups automaticos de BD.
 
-## Estado del proyecto
+## 📌 Estado del proyecto
 Completado y estable para entrega academica.
 
-## Funcionalidades completadas
+## ✅ Funcionalidades completadas
 - Catalogo, carrito, usuarios, pedidos, administracion, informes, integracion basica de pago.
 
-## Mejoras futuras posibles
+## 🔮 Mejoras futuras posibles
 - Emails automaticos de confirmacion.
 - Facturas PDF.
 - Paginacion avanzada.
 - Mejoras de accesibilidad y SEO.
 
-## Licencia
+## 📄 Licencia
 MIT
 
-## Contacto
+## 📬 Contacto
 - GitHub: https://github.com/jesusbailen
+- LinkedIn: https://linkedin.com/n/jesusbailen
 
 ---
 Gracias por revisar el proyecto.
