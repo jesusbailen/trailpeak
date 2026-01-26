@@ -18,7 +18,10 @@ Visualización de productos activos
 
 Diseño responsive con Bootstrap
 
+
+
 🛒 Carrito y compra
+
 
 Carrito de compra con gestión de cantidades
 
@@ -40,7 +43,10 @@ Enviado
 
 Entregado
 
+
+
 👤 Usuarios y autenticación
+
 
 Registro, login y logout seguros
 
@@ -54,7 +60,10 @@ Edición de datos personales
 
 Cambio de contraseña
 
+
+
 👨‍💼 Panel de administración
+
 
 Acceso protegido por rol
 
@@ -76,7 +85,10 @@ Productos más vendidos
 
 Ingresos agrupados por mes
 
+
+
 👥 Sistema de roles
+
 
 Visitante: navegación, carrito y compra como invitado
 
@@ -84,30 +96,39 @@ Cliente: compras, pedidos y perfil
 
 Empleado: gestión de productos, categorías y pedidos
 
-Administrador: control total + informes + usuarios
+Administrador: gestión completa + informes + usuarios
+
+
 
 🛠️ Tecnologías utilizadas
-Backend
 
-PHP 7.4+
+🔧 Backend
 
-MySQL / MariaDB
+· PHP 7.4+
 
-PDO (consultas preparadas)
+· MySQL / MariaDB
 
-Frontend
+· PDO (consultas preparadas)
 
-HTML5 / CSS3
 
-Bootstrap 5
+🎨 Frontend
 
-JavaScript (Vanilla)
+· HTML5 / CSS3
 
-Servicios externos
+· Bootstrap 5
+
+· JavaScript (Vanilla)
+
+
+🌐 Servicios externos
+
 
 Stripe Checkout (modo test)
 
+
+
 📁 Estructura del proyecto
+
 TrailPeak/
 │
 ├── admin/                # Panel de administración
@@ -138,8 +159,9 @@ TrailPeak/
 │
 └── trailpeak_local.sql   # Script de base de datos
 
+
 🚀 Instalación en local
-Requisitos
+📦 Requisitos
 
 XAMPP / WAMP / MAMP
 
@@ -149,7 +171,7 @@ MySQL / MariaDB
 
 Navegador web moderno
 
-Pasos
+⚙️ Pasos
 
 Copiar el proyecto en la carpeta htdocs
 
@@ -165,7 +187,7 @@ Copiar:
 config/env.example.php → config/env.php
 
 
-Configurar las credenciales de base de datos y Stripe en env.php
+Configurar credenciales de base de datos y Stripe en env.php
 
 Acceder desde el navegador:
 
@@ -199,6 +221,10 @@ Email: cliente@trailpeak.test
 
 Password: Cliente123
 
+⚠️ Credenciales incluidas únicamente con fines educativos y de prueba.
+
+
+
 🔒 Seguridad
 
 Contraseñas cifradas
@@ -213,20 +239,18 @@ Sanitización de salida (htmlspecialchars)
 
 Separación de configuración por entorno
 
-⚠️ Proyecto educativo. Para un entorno de producción real se recomienda añadir:
 
-CSRF tokens
 
-HTTPS
+⚠️ Proyecto educativo. Para producción real se recomienda añadir CSRF tokens, HTTPS, rate limiting, etc.
 
-Rate limiting
 
-Validaciones adicionales
 
 🚧 Estado del proyecto
 
-✅ Proyecto completado y funcional
+✅ Proyecto completado y totalmente funcional
 Cumple los requisitos funcionales de la práctica final de DWES (DAW).
+
+
 
 👨‍💻 Autor
 
