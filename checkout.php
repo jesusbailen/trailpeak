@@ -91,9 +91,8 @@ function getBaseUrl(): string {
              || (isset($_SERVER['SERVER_PORT']) && (int)$_SERVER['SERVER_PORT'] === 443);
   $scheme = $isHttps ? 'https' : 'http';
   $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-
-  $dir = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/')), '/');
-  return $scheme . '://' . $host . $dir;
+  $basePath = rtrim(BASE_URL ?? '/', '/');
+  return $scheme . '://' . $host . $basePath;
 }
 
 $baseUrl = getBaseUrl();
