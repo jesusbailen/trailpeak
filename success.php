@@ -66,7 +66,10 @@ try {
   $esInvitado = false;
   $u = current_user();
   if ($u) {
-    $idUsuario = (int)$u['id'];
+    $idUsuario = (int)($u['id'] ?? $u['id_usuario'] ?? 0);
+    if ($idUsuario <= 0) {
+      throw new RuntimeException("Usuario no vÃ¡lido en sesiÃ³n.");
+    }
   } else {
     $esInvitado = true;
     $guest = $_SESSION['guest'] ?? [];
