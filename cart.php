@@ -2,12 +2,18 @@
 session_start();
 require_once __DIR__ . '/config/db.php';
 
-// DEBUG temporal (luego lo quitamos)
+// Flujo compra: carrito en sesion (id_producto => cantidad)
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Carrito en sesión: [id_producto => cantidad]
+//aqui leemos y buscamos en la bd los productos y calculamos el total.
+
+// desde aqui se puede, digamos, sumar restar con update_cart.php, quitar con remove_from_cart.php, 
+// pagarcon checkout.php
+
 $cart = $_SESSION['cart'] ?? [];
 
 require_once __DIR__ . '/includes/header.php';
@@ -22,6 +28,7 @@ require_once __DIR__ . '/includes/header.php';
   <?php else: ?>
 
     <?php
+      // Flujo compra: recuperar productos del carrito y calcular total
       $ids = array_keys($cart);
       $placeholders = implode(',', array_fill(0, count($ids), '?'));
 
@@ -62,6 +69,7 @@ require_once __DIR__ . '/includes/header.php';
               $subtotal = $precio * $qty;
               $total += $subtotal;
             ?>
+            <!-- Sumar o restar productos de carrito con update form cart php -->
             <tr>
               <td><?= htmlspecialchars($map[$id]['nombre']) ?></td>
               <td class="text-end"><?= number_format($precio, 2, ',', '.') ?> &euro;</td>
@@ -80,6 +88,7 @@ require_once __DIR__ . '/includes/header.php';
                   </form>
                 </div>
               </td>
+              <!-- Borrar productos de carrito con remove form cart php -->
               <td class="text-end"><?= number_format($subtotal, 2, ',', '.') ?> &euro;</td>
               <td class="text-end">
                 <form method="post" action="remove_from_cart.php" class="d-inline">
@@ -102,6 +111,8 @@ require_once __DIR__ . '/includes/header.php';
 
     <div class="d-flex gap-2">
       <a class="btn btn-outline-secondary" href="index.php">Seguir comprando</a>
+
+      <!-- Flujo compra: paso a checkout para crear sesion de Stripe -->
       <a class="btn btn-primary" href="checkout.php">Finalizar compra</a>
     </div>
 

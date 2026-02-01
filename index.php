@@ -110,7 +110,7 @@ if ($useCategoryPaging && $categoriasPrincipalesNoOfertas) {
   $categoriaIdQuery = (int)$categoriasPrincipalesNoOfertas[$page - 1]['id_categoria'];
 }
 
-// 2) PRODUCTOS (tu tabla: producto)
+// 2) PRODUCTOS ( tabla: producto)
 $where = ['p.activo = 1', 'c.activo = 1'];
 $params = [];
 
@@ -146,6 +146,7 @@ if ($order === 'nombre_desc') {
   $orderSql = 'p.nombre ASC';
 }
 
+// Flujo catalogo: contar productos segun filtros
 $sqlCount = "
   SELECT COUNT(*)
   FROM producto p
@@ -156,6 +157,7 @@ $stmt = $pdo->prepare($sqlCount);
 $stmt->execute($params);
 $totalProductos = (int)$stmt->fetchColumn();
 
+// Flujo catalogo: consulta principal de productos
 $sql = "
   SELECT
     p.id_producto AS id,
@@ -174,9 +176,11 @@ $sql = "
 ";
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
+// Flujo catalogo: datos listos para pintar en HTML
 $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // agrupamos por slug de categoría
+// Flujo catalogo: agrupar productos por categoria (slug)
 $productosPorCategoria = [];
 foreach ($productos as $p) {
   $slugCat = slugify($p['categoria_nombre']);
@@ -608,6 +612,7 @@ $imagenesPorSlug = [
                   <span class="text-muted small">Stock: <?= (int)$p['stock'] ?></span>
                 </div>
                 <div class="d-flex gap-2 mt-3">
+                  <!-- Flujo catalogo: generar enlace con id para detalle de producto -->
                   <a class="btn btn-outline-dark w-100 btn-center" href="<?= BASE_URL ?>producto.php?id=<?= (int)$p['id'] ?>">Ver m&aacute;s</a>
                   <form method="post" action="add_to_cart.php">
                     <input type="hidden" name="product_id" value="<?= (int)$p['id'] ?>">
@@ -736,8 +741,3 @@ $imagenesPorSlug = [
 
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>
-
-
-
-
-

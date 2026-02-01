@@ -11,6 +11,8 @@ require_once __DIR__ . '/lib/auth.php';
 require_once __DIR__ . '/config/db.php';
 require_once __DIR__ . '/config/stripe.php';
 
+// Flujo compra: si carrito vacio, no se puede pagar
+
 $cart = $_SESSION['cart'] ?? [];
 if (empty($cart)) {
   exit("Carrito vacío: añade un producto antes de pagar.");
@@ -38,6 +40,7 @@ if (!is_logged_in()) {
   }
 
   if (empty($_SESSION['guest'])) {
+    // Flujo compra: pedir nombre/email al invitado antes de crear session de Stripe
     require_once __DIR__ . '/includes/header.php';
     ?>
     <main class="py-5">
@@ -119,6 +122,7 @@ if (!$productos) {
   exit("No se han encontrado productos en BD para los IDs del carrito.");
 }
 
+// Flujo compra: crear line_items con productos del carrito
 $lineItems = [];
 foreach ($productos as $p) {
   $idProducto = (int)$p['id_producto'];
@@ -142,6 +146,7 @@ if (empty($lineItems)) {
 }
 
 try {
+  // Flujo compra: crear Stripe Checkout Session y redirigir al pago
   $session = \Stripe\Checkout\Session::create([
     'mode' => 'payment',
     'line_items' => $lineItems,

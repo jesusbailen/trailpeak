@@ -142,6 +142,7 @@ if ($imgProd === '') {
                 <span class="fw-bold fs-4"><?= number_format((float)$producto['precio'], 2, ',', '.') ?> &euro;</span>
                 <span class="text-muted small">Stock: <?= (int)$producto['stock'] ?></span>
               </div>
+              <!-- Flujo compra: anadir producto al carrito -->
               <form method="post" action="<?= BASE_URL ?>add_to_cart.php" class="d-flex align-items-center gap-2">
                 <input type="hidden" name="product_id" value="<?= (int)$producto['id_producto'] ?>">
                 <div class="input-group" style="max-width: 140px;">

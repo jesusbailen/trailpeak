@@ -31,6 +31,7 @@ if (!is_logged_in() && empty($_SESSION['guest'])) {
 }
 
 try {
+  // Flujo compra: verificar pago en Stripe y registrar pedido en BD
   // 1) Verificar en Stripe
   $stripeSession = \Stripe\Checkout\Session::retrieve($sessionId);
 
@@ -40,6 +41,7 @@ try {
   }
 
   // 2) Evitar duplicados
+  // Flujo compra: evitar duplicados si se refresca la pagina de exito
   $check = $pdo->prepare("SELECT id_pedido FROM pedido WHERE stripe_session_id = ?");
   $check->execute([$sessionId]);
   $existing = $check->fetch(PDO::FETCH_ASSOC);
@@ -58,9 +60,11 @@ try {
 
 
   // 3) Calcular total desde Stripe (es la fuente más fiable)
+  // Flujo compra: total desde Stripe (fuente fiable)
   $total = ((int)($stripeSession->amount_total ?? 0)) / 100;
 
   // 4) Insertar pedido + detalles en transacción
+  // Flujo compra: insertar pedido + detalles en transaccion
   $pdo->beginTransaction();
 
   $esInvitado = false;
@@ -147,6 +151,7 @@ try {
   $pdo->commit();
 
   // 5) Vaciar carrito
+  // Flujo compra: vaciar carrito y datos de invitado
   unset($_SESSION['cart']);
   if (!empty($_SESSION['guest'])) {
     unset($_SESSION['guest']);

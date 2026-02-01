@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// Flujo compra: ajustar cantidades del carrito en sesion
 $productId = (int)(filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT) ?? 0);
 $action = (string)(filter_input(INPUT_POST, 'action', FILTER_UNSAFE_RAW) ?? '');
 
