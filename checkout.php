@@ -19,9 +19,9 @@ if (empty($cart)) {
 }
 
 // Compra como invitado
-if (!is_logged_in()) {
+if (!is_logged_in()) { // si no está logueado -> entra en flujo invitado
   $errors = [];
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') { (()) // si viene un post -> valida nombre y email 
     $nombre = trim($_POST['nombre'] ?? '');
     $email = trim($_POST['email'] ?? '');
 
@@ -32,12 +32,15 @@ if (!is_logged_in()) {
       $errors[] = 'El email no es válido.';
     }
 
+    // si no hay errores -> guarda datos del invitado en sesión y recarga checkout
     if (!$errors) {
+      // guardamos con guest la sesion del invitado
       $_SESSION['guest'] = ['nombre' => $nombre, 'email' => $email];
       header('Location: checkout.php');
       exit;
     }
   }
+// Si NO hay guest en sesión → muestra el formulario y corta ejecución
 
   if (empty($_SESSION['guest'])) {
     // Flujo compra: pedir nombre/email al invitado antes de crear session de Stripe
@@ -84,11 +87,11 @@ if (!is_logged_in()) {
 }
 
 /**
- * Construye la base URL automáticamente (local/hosting)
- * Ejemplos:
- *  - https://trailpeak.ct.ws/ud6/TiendaTrailpeak_FINAL
- *  - http://localhost/ud6/ud6/Tienda_Trailpeak_FINAL
+ * Devuelve la URL base absoluta de la aplicación.
+ * Detecta automáticamente http/https, el host y el subdirectorio del proyecto
+ * para evitar rutas hardcodeadas y funcionar en local y hosting
  */
+
 function getBaseUrl(): string {
   $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
              || (isset($_SERVER['SERVER_PORT']) && (int)$_SERVER['SERVER_PORT'] === 443);
@@ -97,13 +100,18 @@ function getBaseUrl(): string {
   $basePath = rtrim(BASE_URL ?? '/', '/');
   return $scheme . '://' . $host . $basePath;
 }
-
+// Obtenemos la URL base absoluta de la aplicación (local o producción)
 $baseUrl = getBaseUrl();
 
+
+
 // IDs del carrito (claves) => deben ser id_producto
+
+// Saneo IDs para evitar basura y asegurar que la query solo usa enteros.
 $ids = array_map('intval', array_keys($cart));
 $ids = array_values(array_filter($ids, fn($v) => $v > 0));
 
+//Si no hay IDs válidos, paramos
 if (empty($ids)) {
   exit("Carrito inválido: no hay IDs de producto válidos.");
 }
@@ -146,6 +154,7 @@ if (empty($lineItems)) {
 }
 
 try {
+
   // Flujo compra: crear Stripe Checkout Session y redirigir al pago
   $session = \Stripe\Checkout\Session::create([
     'mode' => 'payment',
