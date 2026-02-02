@@ -149,7 +149,7 @@ MIT
 
 ## 📬 Contacto
 - GitHub: https://github.com/jesusbailen
-- LinkedIn: https://linkedin.com/n/jesusbailen
+- LinkedIn: https://linkedin.com/in/jesusbailen
 
 ---
 Gracias por revisar el proyecto.
